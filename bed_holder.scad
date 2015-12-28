@@ -1,3 +1,10 @@
+// FSR mount and bed retainer for hybrid delta printer
+// using Johann's aluminum brackets and 270mm 15x15 openbeam
+// extrusions.
+
+// currently fixed size and approximated, plan is to make it
+// parametric based on plate diameter, beam size, bracket offset
+
 rotate([0,-90,0])
 difference(){
 	union(){
