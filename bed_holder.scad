@@ -5,6 +5,19 @@
 // currently fixed size and approximated, plan is to make it
 // parametric based on plate diameter, beam size, bracket offset
 
+
+bed_diameter = 240;
+beam_width = 15;
+
+beam_length = 270;
+// AND
+bracket_offset = 0;
+// OR
+side_length = 0;
+// width between outside edges of beam at edge of glass
+beam_span_at_edge = 115;
+
+
 rotate([0,-90,0])
 difference(){
 	union(){
