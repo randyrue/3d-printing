@@ -30,7 +30,7 @@ frame_radius = frame_side/sqrt(3);
 
 // for debug, show frame (set to true to show or false to hide)
 // frame is idealized, ignores end bracket truncation
-show_frame = true;
+show_frame = false;
 if (show_frame) {
     difference() {
         translate([0,0,-beam_height])
