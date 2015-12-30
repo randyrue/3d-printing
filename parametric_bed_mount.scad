@@ -30,9 +30,13 @@ slug_width = bed_radius - bed_radius*sqrt(3)/2 + mount_width;
 triangle_radius = bed_radius/sqrt(3);
 frame_radius = frame_side/sqrt(3);
 
+rotate([0,90,0])
+translate([-bed_radius,0,0])
+union(){
+
 // for debug, show frame (set to true to show or false to hide)
 // frame is idealized, ignores end bracket truncation
-show_frame = true;
+show_frame = false;
 if (show_frame) {
     difference() {
         translate([0,0,-beam_height])
@@ -72,7 +76,7 @@ intersection() {
 }
 // add the FSR shelf
 tab_front_y_offset = fsr_width * 0.75;
-tab_back_y_offset = 0.6*(frame_radius-bed_radius-mount_width)/sqrt(3);
+tab_back_y_offset = 0.5*(frame_radius-bed_radius-mount_width)/sqrt(3);
 if (tab_back_y_offset > 4*tab_front_y_offset) {
     tab_back_y_offset = 4*tab_front_y_offset;
 }
@@ -87,7 +91,7 @@ translate([0,0,-fsr_mount_thickness+fsr_mount_lift])
                 circle(r=tab_front_y_offset);
         }
     }
-
+}
 
 
 
