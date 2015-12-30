@@ -1,10 +1,12 @@
 // parametric bed retainer and FSR mount for delta printer,
-// mounts at the corners of the frame
+// mounts at the three corners of the frame
 
 // set values
 mount_width = 10;
 retainer_height = 10;
-fsr_mount_height = 5;
+fsr_mount_thickness = 7;
+// height of the fsr mounting tab above the frame beams
+fsr_mount_lift = 2;
 screw_width = 3;
 slot_width = 6;
 
@@ -30,7 +32,7 @@ frame_radius = frame_side/sqrt(3);
 
 // for debug, show frame (set to true to show or false to hide)
 // frame is idealized, ignores end bracket truncation
-show_frame = false;
+show_frame = true;
 if (show_frame) {
     difference() {
         translate([0,0,-beam_height])
@@ -68,6 +70,27 @@ intersection() {
         }
     }
 }
+// add the FSR shelf
+tab_front_y_offset = fsr_width * 0.75;
+tab_back_y_offset = 0.6*(frame_radius-bed_radius-mount_width)/sqrt(3);
+if (tab_back_y_offset > 4*tab_front_y_offset) {
+    tab_back_y_offset = 4*tab_front_y_offset;
+}
+tab_back_x = -(bed_radius + mount_width);
+tab_front_x = -(bed_radius - tab_front_y_offset);
+
+translate([0,0,-fsr_mount_thickness+fsr_mount_lift])
+    linear_extrude(height=fsr_mount_thickness) {
+        union(){
+            polygon(points=[[-tab_back_x,tab_back_y_offset],[-tab_back_x,-tab_back_y_offset],[-tab_front_x,-tab_front_y_offset],[-tab_front_x,tab_front_y_offset]]);
+            translate([(bed_radius - tab_front_y_offset),0,0])
+                circle(r=tab_front_y_offset);
+        }
+    }
+
+
+
+
 module slotted_hole(r, l, h) {
     d = l/2-r;
     union(){
