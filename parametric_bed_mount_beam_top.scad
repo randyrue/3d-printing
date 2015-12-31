@@ -57,7 +57,7 @@ intersection()  {
         translate([slug_offset,-frame_side/2,0])
             cube([slug_width,frame_side,retainer_height+fsr_mount_thickness]);
         translate([2*bed_radius*sqrt(3)/2,0,0])
-                cylinder(r=bed_radius,h=fsr_mount_thickness, $fn=18);
+                cylinder(r=bed_radius,h=fsr_mount_thickness, $fn=200);
 }
         // remove bed
         translate([0,0,fsr_mount_thickness])
