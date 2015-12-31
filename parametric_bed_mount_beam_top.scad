@@ -28,7 +28,7 @@ slug_width = bed_radius - bed_radius*sqrt(3)/2 + mount_width;
 triangle_radius = bed_radius/sqrt(3);
 frame_radius = frame_side/sqrt(3);
 
-rotate([0,90,0])
+rotate([0,0,0])
 translate([-bed_radius,0,0])
 union(){
 
