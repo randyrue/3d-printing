@@ -56,6 +56,7 @@ intersection()  {
         // "slug"
         translate([slug_offset,-frame_side/2,0])
             cube([slug_width,frame_side,retainer_height+fsr_mount_thickness]);
+        // fsr mount / bed "shelf"
         translate([2*bed_radius*sqrt(3)/2,0,0])
                 cylinder(r=bed_radius,h=fsr_mount_thickness, $fn=200);
 }
@@ -68,12 +69,13 @@ intersection()  {
         // remove screw sliders
         // faking it on the width-wise position of the screw slots
         // this is midway between the middle of the mount body and the edge of the bed
-        xo = -(slug_offset + slug_width/2 + bed_radius)/2;
+        //xo = -(slug_offset + slug_width/2 + bed_radius)/2;
+        xo = -bed_radius;
         hy = (frame_radius - bed_radius)/sqrt(3) - beam_width/2 - slot_width/2;
         for (yo = [-hy, hy])    {
             translate([-xo,yo,-1])
                 rotate([0,0,90])
-                    slotted_hole(r=(screw_width+1)/2, l=beam_width/2, h=retainer_height+fsr_mount_thickness+2);
+                    slotted_hole(r=(screw_width+1)/2, l=beam_width, h=retainer_height+fsr_mount_thickness+2);
                                 }
                 }
                 }
