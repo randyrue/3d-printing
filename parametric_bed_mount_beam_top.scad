@@ -3,7 +3,7 @@
 
 // set values
 mount_width = 10;
-retainer_height = 10;
+retainer_height = 12;
 fsr_mount_thickness = 5;
 screw_width = 3;
 slot_width = 6;
