@@ -8,10 +8,10 @@ difference() {
     translate([0,-5,0])
         roundedcube([116,100,43],true,3);
     // subtract top edge with longer inset
-    translate([0,-40,0])
+    translate([0,-38,0])
         cube([116,51,60],center=true);
     // subtract lower edge
-    translate([0,-40,-10])
+    translate([0,-38,-10])
         cube([116,56,60],center=true);
     // subtract hole for switch
     translate([35,48,0])
@@ -34,12 +34,12 @@ difference() {
         }
     }
     // subtract passthrough hole for wiring
-    translate([60,0,0])
+    translate([60,20,0])
         roundedcube([10,12,4],true,3);
 
 // notch the top edge to accommodate the case
     for (x=[56.5,-56.5]) {
-        translate([x,-12.6,25])
+        translate([x,-10.6,25])
             cube([3,4,10],center=true);
     }
 }
