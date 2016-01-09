@@ -1,6 +1,6 @@
 include <MCAD/roundedcube.scad>;
 // rotate for best printing
-rotate([-90,0,0])
+//rotate([-90,0,0])
 difference() {
     // outside box
     cube([122,100,49],center=true);
@@ -9,17 +9,16 @@ difference() {
         roundedcube([116,100,43],true,3);
     // subtract top edge with longer inset
     translate([0,-40,0])
-        cube([116,47,60],center=true);
-    
+        cube([116,51,60],center=true);
     // subtract lower edge
     translate([0,-40,-10])
-        cube([116,50,60],center=true);
+        cube([116,56,60],center=true);
     // subtract hole for switch
     translate([35,48,0])
-        cube([13,10,27],center=true);
+        cube([14,10,29],center=true);
     // subtract hole for power outlet
     translate([-25,48,0])
-        cube([28,10,20],center=true);
+        cube([29,10,21],center=true);
     // subtract screw holes for power outlet
     for (x=[-20,20]) {
         translate([-25-x,48,0])
@@ -38,10 +37,9 @@ difference() {
     translate([60,0,0])
         roundedcube([10,12,4],true,3);
 
-
 // notch the top edge to accommodate the case
     for (x=[56.5,-56.5]) {
-        translate([x,-15,25])
+        translate([x,-12.6,25])
             cube([3,4,10],center=true);
     }
 }
