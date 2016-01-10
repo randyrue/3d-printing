@@ -1,6 +1,6 @@
 include <MCAD/roundedcube.scad>;
 // rotate for best printing
-//rotate([-90,0,0])
+rotate([-90,0,0])
 union() {
     difference() {
         // add outside box
